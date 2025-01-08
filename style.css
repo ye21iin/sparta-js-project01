@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
+* {
+  font-family: "IBM Plex Sans KR", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.hdr {
+  background-color: rgb(54, 54, 54);
+  height: 150px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* background-image: url(""); */
+  background-position: center;
+  background-size: cover;
+}
+.mainHdr {
+  background-color: yellow;
+
+  display: flex;
+  justify-content: center;
+}
+
