@@ -10,14 +10,37 @@
   <body>
     <header class="hdr">
       <h1>영화 검색</h1>
-      <form class="searchMovie" role="search">
-        <input type="search" placeholder="영화를 검색하세요" />
-        <button type="submit">찾기</button>
-      </form>
+
+      <div class="search-wrap">
+        <input type="search" id="movie-search" placeholder="영화를 검색하세요" />
+        <button type="button" class="btn-search">
+          <span class="blind-ir">검색</span>
+        </button>
+      </div>
+      
       <button id="bookmarkbtn" onclick="showBookmark()">북마크 보기</button>
     </header>
     <main>
       <h2 class="mainHdr">메인 위치</h2>
+      <div id="movie-container">
+        <!-- <div class="card">
+          <div  class="card-img">
+            <img src="" alt="Movie Poster" class="movie-poster">
+          </div>
+          <div class="card-head">
+            <h2 class="movie-title"></h2>
+            <span class="release-date"></span>
+          </div>
+          <div class="card-main">
+            <p class="overview"></p>
+          </div>
+          <div class="card-footer"> 평점:
+            <span class="vote-average"></span> / 10
+            <span class="vote-count"></span> votes
+          </div>
+        </div> -->
+      </div>
+
     </main>
     <footer>FOOTER CONTENT TBA</footer>
   </body>
