@@ -20,28 +20,24 @@
       
       <button id="bookmarkbtn" onclick="showBookmark()">북마크 보기</button>
     </header>
+
     <main>
-      <h2 class="mainHdr">메인 위치</h2>
+      <div id="movie-modal" class="modal">
+        <div class="modal-content">
+          <span id="close-btn" class="close-btn">&times;</span>
+          <img id="movie-poster" alt="Movie Poster" />
+          <h2 id="movie-title"></h2>
+          <p id="movie-description"></p>
+          <p><strong>개봉일: </strong><span id="release-date">정보 없음</span></p>
+          <p><strong>평점 : </strong><span id="vote-average">정보 없음</span></p>
+        </div>
+      </div>
+
       <div id="movie-container">
-        <!-- <div class="card">
-          <div  class="card-img">
-            <img src="" alt="Movie Poster" class="movie-poster">
-          </div>
-          <div class="card-head">
-            <h2 class="movie-title"></h2>
-            <span class="release-date"></span>
-          </div>
-          <div class="card-main">
-            <p class="overview"></p>
-          </div>
-          <div class="card-footer"> 평점:
-            <span class="vote-average"></span> / 10
-            <span class="vote-count"></span> votes
-          </div>
-        </div> -->
       </div>
 
     </main>
+
     <footer>FOOTER CONTENT TBA</footer>
   </body>
 </html>
