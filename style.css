@@ -6,7 +6,7 @@
 }
 .hdr {
   background-color: rgb(54, 54, 54);
-  height: 150px;
+  height: 250px;
   color: white;
 
   display: flex;
@@ -19,9 +19,135 @@
   background-size: cover;
 }
 .mainHdr {
-  background-color: yellow;
-
+  background-color: green;
   display: flex;
   justify-content: center;
 }
 
+/* .search-wrap 스타일 */
+.search-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* 검색창과 버튼을 양쪽 끝으로 배치 */
+    width: 340px;                    /* 너비 설정 */
+    height: 46px;                    /* 높이 설정 */
+    padding: 0 25px 0 20px;          /* 안쪽 여백 */
+    border-radius: 30px;             /* 둥근 모서리 */
+    border: 2px solid #ffcb31;       /* 테두리 색상 */
+    box-sizing: border-box;          /* 테두리와 여백을 포함한 너비와 높이 계산 */
+    background-color: #fff;          /* 배경색 */
+  }
+  
+  /* 검색 입력창 */
+  .search-wrap input[type="search"] {
+    width: 100%;                     /* 너비 100%로 설정 (버튼을 제외한 나머지 공간 채우기) */
+    height: 100%;                    /* 높이 100%로 설정 (부모 요소의 높이와 맞춤) */
+    border: none;                    /* 기본 입력창 테두리 없애기 */
+    outline: none;                   /* 클릭 시 외곽선 없애기 */
+    font-size: 16px;                  /* 글자 크기 설정 */
+    padding: 0 10px;                  /* 좌우 여백 */
+    border-radius: 30px;              /* 둥근 모서리 */
+    box-sizing: border-box;           /* 여백 포함한 크기 계산 */
+  }
+  
+  /* 검색 버튼 스타일 */
+ /* 검색 버튼 스타일 */
+.search-wrap .btn-search {
+    position: relative;                 /* 버튼의 위치를 설정 */
+    width: 40px;                         /* 버튼 너비 설정 */
+    height: 40px;                        /* 버튼 높이 설정 */
+    flex-shrink: 0;                      /* 버튼 크기 변경 방지 */
+    background-color: #ffcb31;           /* 버튼 배경색 */
+    background-image: url(https://cimgcdn.ybtour.co.kr/common/button/btn_search.png); /* 배경 이미지 */
+    background-size: 20px 20px;              /* 배경 이미지 크기를 버튼 크기에 맞게 조정 */
+    background-position: center center;  /* 배경 이미지 중앙 정렬 */
+    background-repeat: no-repeat;        /* 배경 이미지 반복 안 함 */
+    border: none;                        /* 버튼 테두리 제거 */
+    border-radius: 50%;                  /* 둥근 원형 버튼 */
+    display: flex;
+    justify-content: center;             /* 아이콘을 가로로 중앙 배치 */
+    align-items: center;                 /* 아이콘을 세로로 중앙 배치 */
+    cursor: pointer;                    /* 클릭 시 포인터 모양 */
+  }
+  
+  .search-wrap .btn-search:hover {
+    background-color: #e0a800;           /* 마우스를 올렸을 때 배경색 변화 */
+  }
+  
+  /* 숨겨진 텍스트 (스크린 리더용) */
+  .blind-ir {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    border: none;
+    clip: rect(0px, 0px, 0px, 0px);
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+
+/* body */
+
+#movie-container {
+    display : flex;
+    flex-wrap: wrap;
+    gap : 10px;
+    justify-content:space-around;
+}
+/* 카드 스타일 */
+.card {
+    width: 250px; /* 너비 설정 */
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    margin: 20px; /* 카드 간의 간격 */
+    font-family: Arial, sans-serif; /* 글꼴 설정 */
+    overflow: hidden; /* 내용이 넘치지 않도록 설정 */
+    display: flex; /* 내부 요소들이 세로로 배치되도록 */
+    flex-direction: column; /* 카드 내부 요소들을 세로로 배치 */
+  }
+  
+  /* 카드 이미지 */
+  .card-img {
+    height: 150px; /* 이미지 컨테이너의 높이 */
+    display: flex; /* 이미지가 플렉스 컨테이너에 배치되도록 */
+  }
+  
+  .card-img img {
+    width: 100%; /* 이미지 너비를 컨테이너에 맞추기 */
+    height: 100%; /* 이미지 높이를 컨테이너에 맞추기 */
+    object-fit: cover; /* 이미지가 잘리더라도 컨테이너를 꽉 채우도록 */
+  }
+  
+  /* 카드 헤더 */
+  .card-head {
+    min-height: 40px;
+    height: auto;
+    background-color: #ffcb31; /* 배경색 */
+    padding: 10px; /* 내부 여백 */
+    color: white; /* 텍스트 색상 */
+  }
+  
+  .card-head h2 {
+    margin: 0; /* 기본 margin을 제거 */
+  }
+  
+  /* 카드 본문 */
+  .card-main {
+    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+    padding: 10px; /* 내부 여백 */
+    background-color: #f9f9f9; /* 배경색 */
+  }
+  
+  /* 카드 푸터 */
+  .card-footer {
+    height: 50px; /* 푸터 높이 */
+    background-color: thistle; /* 배경색 */
+    padding: 10px; /* 내부 여백 */
+    display: flex; /* 아이템들이 가로로 배치되도록 */
+    justify-content: space-between; /* 두 아이템을 양쪽 끝으로 배치 */
+    font-size: 14px; /* 폰트 크기 */
+  }
+  
