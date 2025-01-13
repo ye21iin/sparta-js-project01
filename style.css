@@ -140,22 +140,37 @@
   cursor: pointer;
 }
 
-.bookmark-btn {
-    background-color: #ffcb31;
-    border: 1px solid #fff;
-    border-radius: 10px;
+.showBookmark-btn {
+  background-color: #ffcb31;
+  border: 1px solid #fff;
+  border-radius: 10px;
 
-    font-size: 20px;
-    text-align: center;
+  font-size: 14px;
+  text-align: center;
 
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 
-    cursor: pointer;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); 
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
-.bookmark-btn:hover{
-    background-color: #e0a800; 
+.showBookmark-btn:hover {
+  background-color: #e0a800;
+}
+
+.bookmark-btn {
+  background-color: #ffcb31;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+.bookmark-btn:hover {
+  background-color: #e0a800;
 }
 
 #movie-container {
