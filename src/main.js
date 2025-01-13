@@ -101,7 +101,8 @@ function openModal(movie) {
 }
 
 // 모달 닫기 기능: 닫기 버튼 클릭 시 모달을 숨김
-document.getElementById("close-btn").addEventListener("click", function () {
+const closeModal = document.getElementById("close-btn");
+closeModal.addEventListener("click", function () {
   const modal = document.getElementById("movie-modal");
   modal.style.display = "none"; // 모달을 숨김
 });
@@ -115,7 +116,8 @@ window.addEventListener("click", function (event) {
 });
 
 // 북마크 추가
-document.getElementById("bookmark-btn").addEventListener("click", function () {
+const addBookmark = document.getElementById("bookmark-btn");
+addBookmark.addEventListener("click", function () {
   // 기능 추가 예정
 });
 
@@ -130,7 +132,7 @@ const options2 = {
 };
 
 document
-  .querySelector(".btn-search")
+  .querySelector(".search-btn")
   .addEventListener("click", async function () {
     console.log("검색 버튼 클릭됨");
     const searchQuery = document.querySelector("#movie-search").value.trim();

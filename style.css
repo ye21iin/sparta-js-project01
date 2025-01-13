@@ -64,7 +64,7 @@
 
 /* 검색 버튼 스타일 */
 /* 검색 버튼 스타일 */
-.search-wrap .btn-search {
+.search-wrap .search-btn {
   position: relative; /* 버튼의 위치를 설정 */
   width: 40px; /* 버튼 너비 설정 */
   height: 40px; /* 버튼 높이 설정 */
