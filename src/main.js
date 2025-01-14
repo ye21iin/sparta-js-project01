@@ -184,12 +184,17 @@ searchBtn.addEventListener("click", async function () {
 });
 
 function backToMain() {
+  const footer = document.querySelector("footer");
   const backToMainBtn = document.createElement("button");
-  backToMainBtn.classList.add("back-to-main-btn");
-  backToMainBtn.textContent = "메인으로 돌아가기";
+  if (!footer.querySelector(".back-to-main-btn")) {
+    const backToMainBtn = document.createElement("button");
+    backToMainBtn.classList.add("back-to-main-btn");
+    backToMainBtn.textContent = "메인으로 돌아가기";
 
-  backToMainBtn.addEventListener("click", function () {
-    window.location.reload();
-  });
-  document.querySelector("footer").appendChild(backToMainBtn);
+    backToMainBtn.addEventListener("click", function () {
+      window.location.reload();
+    });
+
+    footer.appendChild(backToMainBtn);
+  }
 }
