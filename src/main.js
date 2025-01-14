@@ -1,3 +1,11 @@
+const movieContainer = document.getElementById("movie-container");
+const closeModal = document.getElementById("close-btn");
+const addBookmark = document.getElementById("bookmark-btn");
+const searchBtn = document.querySelector(".search-btn");
+// const moveMainBtn = document.querySelector("back-to-main-btn");
+const searchTitle = document.querySelector("#movie-search");
+const movieList = document.querySelector("#movie-container");
+
 // [main] trending movie - Card List 표출
 fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
   method: "GET",
@@ -15,14 +23,14 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
     rows.sort((a, b) => b.vote_count - a.vote_count);
 
     // 영화 컨테이너 선택
-    const movieContainer = document.getElementById("movie-container");
+    // const movieContainer = document.getElementById("movie-container");
 
     // 각 영화에 대해 카드 생성
     rows.forEach((movie) => {
       const card = createMovieCard(movie);
-      movieContainer.appendChild(card); // 영화 컨테이너에 카드 추가
+      showCardsContainer(card);
 
-      // 카드 클릭 시 openModal 함수 호출
+      // 카드 클릭 시 openModal
       card.addEventListener("click", () => {
         openModal(movie); // 클릭된 영화의 정보를 전달
       });
@@ -30,6 +38,10 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
   })
   .catch((err) => console.error(err));
 
+// 컨테이너 카드 표출
+function showCardsContainer(card) {
+  movieContainer.appendChild(card);
+}
 // 카드 생성 함수
 function createMovieCard(movie) {
   const posterPath = movie.poster_path
@@ -101,7 +113,6 @@ function openModal(movie) {
 }
 
 // 모달 닫기 기능: 닫기 버튼 클릭 시 모달을 숨김
-const closeModal = document.getElementById("close-btn");
 closeModal.addEventListener("click", function () {
   const modal = document.getElementById("movie-modal");
   modal.style.display = "none"; // 모달을 숨김
@@ -116,64 +127,72 @@ window.addEventListener("click", function (event) {
 });
 
 // 북마크 추가
-const addBookmark = document.getElementById("bookmark-btn");
 addBookmark.addEventListener("click", function () {
   // 기능 추가 예정
 });
 
 // 검색 기능 - Search/Movie
-const options2 = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzNGFmOGY1YzkzOTZiYWZmYWVmZWFlMWI4MDI5MCIsIm5iZiI6MTczNjMxNzQzOS44NDYwMDAyLCJzdWIiOiI2NzdlMTlmZjg5ZmM1ZDk0NDI0ZTYyY2MiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.b0KjjTJ82aZ_cGqIxwOrsLNMngvvQeKlrGETGx7KlF4",
-  },
-};
+searchBtn.addEventListener("click", async function () {
+  // console.log("검색 버튼 클릭됨");
+  const searchQuery = searchTitle.value.trim().toLowerCase();
 
-document
-  .querySelector(".search-btn")
-  .addEventListener("click", async function () {
-    console.log("검색 버튼 클릭됨");
-    const searchQuery = document.querySelector("#movie-search").value.trim();
-    console.log(searchQuery);
+  if (!searchQuery) {
+    alert(`[오류] 키워드를 입력해주세요!\n검색어가 입력되지 않았습니다.`);
+    return;
+  }
 
-    if (!searchQuery) {
-      alert(`[오류] 키워드를 입력해주세요!\n검색어가 입력되지 않았습니다.`);
-      return;
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=ko`,
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzNGFmOGY1YzkzOTZiYWZmYWVmZWFlMWI4MDI5MCIsIm5iZiI6MTczNjMxNzQzOS44NDYwMDAyLCJzdWIiOiI2NzdlMTlmZjg5ZmM1ZDk0NDI0ZTYyY2MiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.b0KjjTJ82aZ_cGqIxwOrsLNMngvvQeKlrGETGx7KlF4",
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("API 요청 실패");
     }
 
-    try {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/trending/movie/day?language=ko",
-        options2
-      );
-      if (!response.ok) {
-        throw new Error("API 요청 실패");
-      }
+    const data = await response.json();
+    const sortedSearchResult = data.results.sort(
+      (a, b) => b.vote_count - a.vote_count
+    );
 
-      const data = await response.json();
-      console.log(data);
+    movieList.innerHTML = ""; // 기존 목록 초기화
+    if (sortedSearchResult.length > 0) {
+      sortedSearchResult.forEach((movie) => {
+        showCardsContainer(createMovieCard(movie));
+      });
+      // const backToMainBtn = document.createElement("button");
+      // backToMainBtn.textContent = "메인으로 돌아가기";
 
-      // 추가적인 로직: 검색된 영화 목록 화면에 표시 등
-      const movieList = document.querySelector("#movie-container");
-      movieList.innerHTML = ""; // 기존 목록 초기화
+      // backToMainBtn.addEventListener("click", function () {
+      //   window.location.reload();
+      // });
+      // movieList.appendChild(backToMainBtn);
+    } else {
+      const noResultContainer = document.createElement("div");
+      noResultContainer.classList.add("no-result-container");
 
-      if (data.results.length > 0) {
-        data.results.forEach((movie) => {
-          const movieItem = document.createElement("div");
-          movieItem.classList.add("movie-item");
-          movieItem.innerHTML = `
-              <h3>${movie.title}</h3>
-              <p>${movie.overview}</p>
-              <p><strong>개봉일:</strong> ${movie.release_date}</p>
-            `;
-          movieList.appendChild(movieItem);
-        });
-      } else {
-        movieList.innerHTML = "<p>검색 결과가 없습니다.</p>";
-      }
-    } catch (error) {
-      console.error(error); // 오류 발생 시 콘솔에 출력
+      const noResultMessage = document.createElement("p");
+      noResultMessage.textContent = "검색 결과가 없습니다.";
+
+      const backToMainBtn = document.createElement("button");
+      backToMainBtn.classList.add("back-to-main-btn");
+      backToMainBtn.textContent = "메인으로 돌아가기";
+
+      backToMainBtn.addEventListener("click", function () {
+        window.location.reload();
+      });
+      document.querySelector("footer").appendChild(backToMainBtn);
+      noResultContainer.appendChild(noResultMessage);
+      movieList.appendChild(noResultContainer);
     }
-  });
+  } catch (error) {
+    console.error(error); // 오류 발생 시 콘솔에 출력
+  }
+});

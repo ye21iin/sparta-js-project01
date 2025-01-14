@@ -239,3 +239,28 @@
   justify-content: space-between; /* 두 아이템을 양쪽 끝으로 배치 */
   font-size: 14px; /* 폰트 크기 */
 }
+
+.no-result-container {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.back-to-main-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.back-to-main-btn:hover {
+  background-color: #45a049;
+}
