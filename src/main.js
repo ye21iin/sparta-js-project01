@@ -167,13 +167,6 @@ searchBtn.addEventListener("click", async function () {
       sortedSearchResult.forEach((movie) => {
         showCardsContainer(createMovieCard(movie));
       });
-      // const backToMainBtn = document.createElement("button");
-      // backToMainBtn.textContent = "메인으로 돌아가기";
-
-      // backToMainBtn.addEventListener("click", function () {
-      //   window.location.reload();
-      // });
-      // movieList.appendChild(backToMainBtn);
     } else {
       const noResultContainer = document.createElement("div");
       noResultContainer.classList.add("no-result-container");
@@ -181,18 +174,22 @@ searchBtn.addEventListener("click", async function () {
       const noResultMessage = document.createElement("p");
       noResultMessage.textContent = "검색 결과가 없습니다.";
 
-      const backToMainBtn = document.createElement("button");
-      backToMainBtn.classList.add("back-to-main-btn");
-      backToMainBtn.textContent = "메인으로 돌아가기";
-
-      backToMainBtn.addEventListener("click", function () {
-        window.location.reload();
-      });
-      document.querySelector("footer").appendChild(backToMainBtn);
       noResultContainer.appendChild(noResultMessage);
       movieList.appendChild(noResultContainer);
     }
   } catch (error) {
     console.error(error); // 오류 발생 시 콘솔에 출력
   }
+  backToMain();
 });
+
+function backToMain() {
+  const backToMainBtn = document.createElement("button");
+  backToMainBtn.classList.add("back-to-main-btn");
+  backToMainBtn.textContent = "메인으로 돌아가기";
+
+  backToMainBtn.addEventListener("click", function () {
+    window.location.reload();
+  });
+  document.querySelector("footer").appendChild(backToMainBtn);
+}
