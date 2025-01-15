@@ -2,10 +2,10 @@ const movieContainer = document.getElementById("movie-container");
 const closeModal = document.getElementById("close-btn");
 const addBookmark = document.getElementById("bookmark-btn");
 const searchBtn = document.querySelector(".search-btn");
-// const moveMainBtn = document.querySelector("back-to-main-btn");
 const searchTitle = document.querySelector("#movie-search");
 const movieList = document.querySelector("#movie-container");
 
+let dataset = [];
 // [main] trending movie - Card List 표출
 fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
   method: "GET",
@@ -18,12 +18,10 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
   .then((res) => res.json())
   .then((res) => {
     let rows = res["results"];
+    dataset = rows;
 
     // 평가한 사람이 많은 순으로 정렬 (내림차순)
     rows.sort((a, b) => b.vote_count - a.vote_count);
-
-    // 영화 컨테이너 선택
-    // const movieContainer = document.getElementById("movie-container");
 
     // 각 영화에 대해 카드 생성
     rows.forEach((movie) => {
@@ -32,7 +30,9 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
 
       // 카드 클릭 시 openModal
       card.addEventListener("click", () => {
-        openModal(movie); // 클릭된 영화의 정보를 전달
+        const findId = movie.id;
+        openModal(findId);
+        // openModal(movie.id); // 클릭된 영화의 정보를 전달
       });
     });
   })
@@ -91,7 +91,13 @@ function createMovieCard(movie) {
 }
 
 // Open-Modal - 영화 클릭 시 상세 정보 표출
-function openModal(movie) {
+function openModal(findId) {
+  const movie = dataset.find((e) => e.id === findId);
+  if (!movie) {
+    console.error("영화 데이터를 찾을 수 없습니다.");
+    return;
+  }
+
   const modal = document.getElementById("movie-modal");
   const moviePoster = document.getElementById("movie-poster");
   const movieTitle = document.getElementById("movie-title");
@@ -133,7 +139,6 @@ addBookmark.addEventListener("click", function () {
 
 // 검색 기능 - Search/Movie
 searchBtn.addEventListener("click", async function () {
-  // console.log("검색 버튼 클릭됨");
   const searchQuery = searchTitle.value.trim().toLowerCase();
 
   if (!searchQuery) {
@@ -156,18 +161,25 @@ searchBtn.addEventListener("click", async function () {
     if (!response.ok) {
       throw new Error("API 요청 실패");
     }
-
     const data = await response.json();
     const sortedSearchResult = data.results.sort(
       (a, b) => b.vote_count - a.vote_count
     );
+    dataset = sortedSearchResult;
 
     movieList.innerHTML = ""; // 기존 목록 초기화
     if (sortedSearchResult.length > 0) {
       sortedSearchResult.forEach((movie) => {
-        showCardsContainer(createMovieCard(movie));
+        const card = createMovieCard(movie);
+        showCardsContainer(card);
+        card.addEventListener("click", () => {
+          const findId = movie.id;
+          openModal(findId);
+        });
       });
-    } else {
+    }
+    // 검색결과가 없을 때
+    else {
       const noResultContainer = document.createElement("div");
       noResultContainer.classList.add("no-result-container");
 
@@ -183,6 +195,7 @@ searchBtn.addEventListener("click", async function () {
   backToMain();
 });
 
+// 메인화면 돌아가기
 function backToMain() {
   const footer = document.querySelector("footer");
   const backToMainBtn = document.createElement("button");
