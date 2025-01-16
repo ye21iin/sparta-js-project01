@@ -1,5 +1,6 @@
 import { openModal, closeModalFunc, closeModalWindow } from "./modal.js";
 import { showCardsContainer, createMovieCard } from "./card.js";
+import { getTrendingMovies } from "./api.js";
 
 const closeModal = document.getElementById("close-btn");
 const addBookmark = document.getElementById("bookmark-btn");
@@ -7,70 +8,31 @@ const searchBtn = document.querySelector(".search-btn");
 const searchTitle = document.querySelector("#movie-search");
 const movieList = document.querySelector("#movie-container");
 
+const url_trending =
+  "https://api.themoviedb.org/3/trending/movie/day?language=ko";
+
 // [main] trending movie - Card List 표출
 let dataset = [];
+async function main() {
+  try {
+    dataset = await getTrendingMovies(url_trending);
+    return dataset["results"].sort((a, b) => b.vote_count - a.vote_count);
+  } catch (err) {
+    throw new Error(`error! status : ${err}`);
+  }
+}
+dataset = await main();
 
-fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzNGFmOGY1YzkzOTZiYWZmYWVmZWFlMWI4MDI5MCIsIm5iZiI6MTczNjMxNzQzOS44NDYwMDAyLCJzdWIiOiI2NzdlMTlmZjg5ZmM1ZDk0NDI0ZTYyY2MiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.b0KjjTJ82aZ_cGqIxwOrsLNMngvvQeKlrGETGx7KlF4",
-  },
-})
-  .then((res) => res.json())
-  .then((res) => {
-    let rows = res["results"];
-    dataset = rows;
+// 각 영화에 대해 카드 생성
+dataset.forEach((movie) => {
+  const card = createMovieCard(movie);
+  showCardsContainer(card);
 
-    // 평가한 사람이 많은 순으로 정렬 (내림차순)
-    rows.sort((a, b) => b.vote_count - a.vote_count);
-
-    // 각 영화에 대해 카드 생성
-    rows.forEach((movie) => {
-      const card = createMovieCard(movie);
-      showCardsContainer(card);
-
-      // 카드 클릭 시 openModal
-      card.addEventListener("click", () => {
-        openModal(movie.id, dataset);
-      });
-    });
-  })
-  .catch((err) => console.error(err));
-
-
-// // [main] trending movie - Card List 표출
-// let dataset = [];
-
-// fetch("https://api.themoviedb.org/3/trending/movie/day?language=ko", {
-//   method: "GET",
-//   headers: {
-//     accept: "application/json",
-//     Authorization:
-//       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzYzNGFmOGY1YzkzOTZiYWZmYWVmZWFlMWI4MDI5MCIsIm5iZiI6MTczNjMxNzQzOS44NDYwMDAyLCJzdWIiOiI2NzdlMTlmZjg5ZmM1ZDk0NDI0ZTYyY2MiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.b0KjjTJ82aZ_cGqIxwOrsLNMngvvQeKlrGETGx7KlF4",
-//   },
-// })
-//   .then((res) => res.json())
-//   .then((res) => {
-//     let rows = res["results"];
-//     dataset = rows;
-
-//     // 평가한 사람이 많은 순으로 정렬 (내림차순)
-//     rows.sort((a, b) => b.vote_count - a.vote_count);
-
-//     // 각 영화에 대해 카드 생성
-//     rows.forEach((movie) => {
-//       const card = createMovieCard(movie);
-//       showCardsContainer(card);
-
-//       // 카드 클릭 시 openModal
-//       card.addEventListener("click", () => {
-//         openModal(movie.id, dataset);
-//       });
-//     });
-//   })
-//   .catch((err) => console.error(err));
+  // 카드 클릭 시 openModal
+  card.addEventListener("click", () => {
+    openModal(movie.id, dataset);
+  });
+});
 
 // 모달 닫기 기능: 닫기 버튼 클릭 시 모달을 숨김
 closeModal.addEventListener("click", closeModalFunc);
@@ -143,14 +105,16 @@ searchBtn.addEventListener("click", async function () {
 // 메인화면 돌아가기
 function backToMain() {
   const footer = document.querySelector("footer");
-  const backToMainBtn = document.createElement("button");
-  if (!footer.querySelector(".back-to-main-btn")) {
+  const existingBtn = footer.querySelector(".back-to-main-btn");
+
+  if (!existingBtn) {
     const backToMainBtn = document.createElement("button");
     backToMainBtn.classList.add("back-to-main-btn");
     backToMainBtn.textContent = "메인으로 돌아가기";
 
-    backToMainBtn.addEventListener("click", function () {
+    backToMainBtn.addEventListener("click", () => {
       window.location.reload();
+      window.scrollTo(0, 0);
     });
 
     footer.appendChild(backToMainBtn);
