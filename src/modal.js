@@ -12,6 +12,7 @@ function openModal(findId, dataset) {
   const movieDescription = document.getElementById("movie-description");
   const releaseDate = document.getElementById("release-date");
   const voteAverage = document.getElementById("vote-average");
+  const addBookmarkBtn = document.querySelector("#bookmark-btn");
 
   // 모달에 영화 상세 정보 세팅
   const posterPath = movie.poster_path
@@ -23,13 +24,16 @@ function openModal(findId, dataset) {
   releaseDate.textContent = movie.release_date;
   voteAverage.textContent = `${Math.round(movie.vote_average * 10) / 10} / 10`;
 
+  addBookmarkBtn.setAttribute("data-movie-id", movie.id);
+  addBookmarkBtn.setAttribute("data-movie-title", movie.title);
+
   modal.style.display = "block";
 }
 
 // 모달 닫기 기능: 닫기 버튼 클릭 시 모달을 숨김
 function closeModalFunc() {
   const modal = document.getElementById("movie-modal");
-  modal.style.display = "none"; // 모달을 숨김
+  modal.style.display = "none";
 }
 
 // 모달 외부 클릭 시 모달 닫기 (배경 클릭 시 모달 닫힘)
@@ -39,4 +43,23 @@ function closeModalWindow(event) {
     modal.style.display = "none";
   }
 }
-export { openModal, closeModalFunc, closeModalWindow };
+
+function closeBookmarkModal() {
+  const modal = document.getElementById("bookmark-modal");
+  modal.style.display = "none";
+}
+
+function closeBookmarkWindow(event) {
+  const modal = document.getElementById("bookmark-modal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+export {
+  openModal,
+  closeModalFunc,
+  closeModalWindow,
+  closeBookmarkModal,
+  closeBookmarkWindow,
+};

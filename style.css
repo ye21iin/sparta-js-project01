@@ -13,10 +13,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* background-image: url(""); */
-  /* background-position: center; */
-  /* background-size: cover; */
 }
 .hdr > button {
   color: #ffcb31;
@@ -62,7 +58,6 @@
   box-sizing: border-box; /* 여백 포함한 크기 계산 */
 }
 
-/* 검색 버튼 스타일 */
 /* 검색 버튼 스타일 */
 .search-wrap .search-btn {
   position: relative; /* 버튼의 위치를 설정 */
@@ -263,4 +258,71 @@ footer {
 }
 .back-to-main-btn:hover {
   background-color: #45a049;
+}
+
+#bookmark-modal {
+  display: none;
+  position: fixed;
+
+  z-index: 2; /* 다른 모달보다 우선순위 높게 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  justify-content: center;
+  align-items: center;
+}
+#bookmark-modal .modal-content {
+  position: relative;
+  background-color: white;
+
+  padding: 35px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 600px;
+
+  overflow-y: auto;
+}
+#close-bookmark-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+#bookmark-container {
+  list-style-type: none;
+  padding: 0;
+}
+#bookmark-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+#bookmark-container button {
+  background-color: #ffcb31;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+#bookmark-container button:hover {
+  background-color: #e0a800;
+}
+
+#bookmark-container li.no-bookmarks {
+  text-align: center;
+  color: #999;
+  font-size: 18px;
 }

@@ -1,14 +1,21 @@
-import { closeModalFunc, closeModalWindow } from "./modal.js";
+import {
+  closeModalFunc,
+  closeModalWindow,
+  closeBookmarkModal,
+  closeBookmarkWindow,
+} from "./modal.js";
 import { getMovieData, getSearchData } from "./api.js";
 import { createCardNEvent, showNoResult, backToMain } from "./ui.js";
+import { addBookmarkFunc, showBookmarkFunc } from "./bookmark.js";
 
 const searchInput = document.getElementById("movie-search");
 const closeModal = document.getElementById("close-btn");
-const addBookmark = document.getElementById("bookmark-btn");
 const searchBtn = document.querySelector(".search-btn");
 const movieList = document.querySelector("#movie-container");
 const searchTitle = document.querySelector("#movie-search");
-
+const addBookmark = document.getElementById("bookmark-btn");
+const showBookmark = document.getElementById("showBookmark-btn");
+const closeBookmarkBtn = document.getElementById("close-bookmark-btn");
 const urlTrending =
   "https://api.themoviedb.org/3/trending/movie/day?language=ko";
 
@@ -67,6 +74,13 @@ closeModal.addEventListener("click", closeModalFunc);
 window.addEventListener("click", closeModalWindow);
 
 // 북마크 추가
-addBookmark.addEventListener("click", function () {
-  // 기능 추가 예정
-});
+addBookmark.addEventListener("click", addBookmarkFunc);
+
+// 북마크 보기
+showBookmark.addEventListener("click", showBookmarkFunc);
+
+// 북마크 닫기
+closeBookmarkBtn.addEventListener("click", closeBookmarkModal);
+
+// 북마크 모달 외부 클릭 시 모달 닫기
+window.addEventListener("click", closeBookmarkWindow);
