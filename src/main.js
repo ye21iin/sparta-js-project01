@@ -2,6 +2,7 @@ import { closeModalFunc, closeModalWindow } from "./modal.js";
 import { getMovieData, getSearchData } from "./api.js";
 import { createCardNEvent, showNoResult, backToMain } from "./ui.js";
 
+const searchInput = document.getElementById("movie-search");
 const closeModal = document.getElementById("close-btn");
 const addBookmark = document.getElementById("bookmark-btn");
 const searchBtn = document.querySelector(".search-btn");
@@ -23,7 +24,7 @@ dataset = await main();
 createCardNEvent(dataset);
 
 // 검색 기능 - Search/Movie
-searchBtn.addEventListener("click", async function () {
+async function performSearch() {
   try {
     dataset = await getSearchData(urlTrending);
     dataset = dataset["results"].sort((a, b) => b.vote_count - a.vote_count);
@@ -40,7 +41,15 @@ searchBtn.addEventListener("click", async function () {
   } catch (err) {
     throw new Error(`status : ${err}`);
   }
-});
+}
+
+// 버튼 검색
+searchBtn.addEventListener("click", performSearch);
+
+// 엔터키 검색
+searchInput.addEventListener("keydown", (event) =>
+  event.key === "Enter" ? performSearch() : ""
+);
 
 // 모달 닫기 기능: 닫기 버튼 클릭 시 모달을 숨김
 closeModal.addEventListener("click", closeModalFunc);
