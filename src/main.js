@@ -7,6 +7,8 @@ const closeModal = document.getElementById("close-btn");
 const addBookmark = document.getElementById("bookmark-btn");
 const searchBtn = document.querySelector(".search-btn");
 const movieList = document.querySelector("#movie-container");
+const searchTitle = document.querySelector("#movie-search");
+
 const urlTrending =
   "https://api.themoviedb.org/3/trending/movie/day?language=ko";
 
@@ -26,7 +28,14 @@ createCardNEvent(dataset);
 // 검색 기능 - Search/Movie
 async function performSearch() {
   try {
-    dataset = await getSearchData(urlTrending);
+    if (!searchTitle) {
+      return "";
+    }
+    const searchQuery = searchTitle.value.trim().toLowerCase();
+
+    const urlSearch = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=ko`;
+
+    dataset = await getSearchData(urlSearch, searchQuery);
     dataset = dataset["results"].sort((a, b) => b.vote_count - a.vote_count);
 
     movieList.innerHTML = ""; // 기존 목록 초기화

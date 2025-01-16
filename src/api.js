@@ -1,4 +1,3 @@
-const searchTitle = document.querySelector("#movie-search");
 const options = {
   method: "GET",
   headers: {
@@ -8,6 +7,7 @@ const options = {
   },
 };
 
+// [main] trending movie
 async function getMovieData(url) {
   try {
     const response = await fetch(url, options);
@@ -23,18 +23,16 @@ async function getMovieData(url) {
   }
 }
 
-async function getSearchData() {
-  const searchQuery = searchTitle.value.trim().toLowerCase();
+// search movie
+async function getSearchData(url, searchQuery) {
   console.log("검색어 : ", searchQuery);
-  const urlSearch = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=ko`;
-
   if (!searchQuery) {
     alert(`[오류] 키워드를 입력해주세요!\n검색어가 입력되지 않았습니다.`);
     return;
   }
 
   try {
-    const response = await fetch(urlSearch, options);
+    const response = await fetch(url, options);
 
     if (!response.ok) {
       throw new Error(`status : ${response.status}`);
