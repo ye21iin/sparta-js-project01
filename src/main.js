@@ -1,6 +1,6 @@
 import { closeModalFunc, closeModalWindow } from "./modal.js";
 import { getMovieData, getSearchData } from "./api.js";
-import { createCardNEvent, backToMain } from "./ui.js";
+import { createCardNEvent, showNoResult, backToMain } from "./ui.js";
 
 const closeModal = document.getElementById("close-btn");
 const addBookmark = document.getElementById("bookmark-btn");
@@ -34,18 +34,11 @@ searchBtn.addEventListener("click", async function () {
     }
     // 검색결과가 없을 때
     else {
-      const noResultContainer = document.createElement("div");
-      noResultContainer.classList.add("no-result-container");
-
-      const noResultMessage = document.createElement("p");
-      noResultMessage.textContent = "검색 결과가 없습니다.";
-
-      noResultContainer.appendChild(noResultMessage);
-      movieList.appendChild(noResultContainer);
+      showNoResult();
     }
     backToMain();
   } catch (err) {
-    throw new Error(`error! status : ${err}`);
+    throw new Error(`status : ${err}`);
   }
 });
 

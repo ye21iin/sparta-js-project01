@@ -1,6 +1,8 @@
 import { showCardsContainer, createMovieCard } from "./card.js";
 import { openModal } from "./modal.js";
 
+const movieList = document.querySelector("#movie-container");
+
 // 카드 생성 및 모달 이벤트 생성
 function createCardNEvent(dataset) {
   dataset.forEach((movie) => {

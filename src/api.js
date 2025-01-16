@@ -13,13 +13,13 @@ async function getMovieData(url) {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      throw new Error(`error! status : ${response.status}`);
+      throw new Error(`status : ${response.status}`);
     }
 
     const data = await response.json();
     return data;
   } catch (err) {
-    throw new Error(`error! status : ${err.message}`);
+    throw new Error(`status : ${err.message}`);
   }
 }
 
@@ -37,13 +37,13 @@ async function getSearchData() {
     const response = await fetch(urlSearch, options);
 
     if (!response.ok) {
-      throw new Error(`error! status : ${response.status}`);
+      throw new Error(`status : ${response.status}`);
     }
 
     const data = await response.json();
     return data;
   } catch (err) {
-    throw new Error(`error! status : ${err.message}`);
+    throw new Error(`status : ${err.message}`);
   }
 }
 
