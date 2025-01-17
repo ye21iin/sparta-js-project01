@@ -1,4 +1,4 @@
-# 🎬 Lights, Camera, Action! 🍿 영화 검색 앱 (Movie Search App)
+# 🎬 Lights, Camera, Action! 🍿 영화 검색 앱 (Movie Search)
 
 ## Bookmark management WEB Application
 
@@ -104,11 +104,24 @@ index.html 파일을 더블 클릭하거나 웹 브라우저에서 열어주세�
 
 ### 💾 localStorage 사용
 
+```
+// localStorage의 북마크 불러오기
+let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+// 북마크 추가
+bookmarks.push(movie);
+localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+// 북마크 삭제
+bookmarks = bookmarks.filter(bookmark => bookmark.id !== movieId);
+localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+```
+
 북마크 항목은 localStorage에 저장되어 페이지를 새로고침하거나 브라우저를 종료한 후에도 데이터가 유지됩니다. 사용자가 북마크를 추가하거나 삭제할 때마다 localStorage에 저장된 데이터를 갱신합니다.
 
 ### 💡 모달(Modal) 기능
 
-북마크 목록을 확인하기 위해 모달을 사용했습니다. 모달은 기본적으로 숨겨져 있으며, 영화 카드/버튼 클릭 시 표시됩니다. 모달을 닫으려면 "×" 버튼을 클릭하거나, 모달 외부를 클릭하면 됩니다.
+영화 상세 정보 표출과 북마크 목록을 확인을 위해 모달을 사용했습니다. 모달은 기본적으로 숨겨져 있으며, 영화 카드/버튼 클릭 시 표시됩니다. 모달을 닫으려면 "×" 버튼을 클릭하거나, 모달 외부를 클릭하면 됩니다.
 
 ## 🔒 라이센스
 
