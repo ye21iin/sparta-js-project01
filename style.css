@@ -124,7 +124,11 @@
   overflow-y: auto;
 }
 #movie-poster {
-  height: 50%;
+  width: 100%; /* 부모 요소의 너비에 맞게 크기 조정 */
+  height: auto; /* 비율을 유지하면서 높이를 자동으로 설정 */
+  max-height: 500px; /* 이미지가 너무 커지지 않도록 제한 */
+  object-fit: contain; /* 비율을 유지하면서 꽉 차게 */
+  object-position: center; /* 이미지가 중앙에 오도록 설정 */
 }
 
 .close-btn {
@@ -197,9 +201,11 @@
 
 /* 카드 이미지 */
 .card-img {
+  width: 100%;
   height: auto; /* 이미지 컨테이너의 높이 */
   display: flex; /* 이미지가 플렉스 컨테이너에 배치되도록 */
   flex-grow: 1;
+  object-fit: contain;
 }
 
 .card-img img {
