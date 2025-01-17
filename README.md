@@ -8,7 +8,7 @@
 - 이 애플리케이션 서비스는 실시간 영화 API를 기반으로 인기있는 영화 목록과 상세 정보를 제공합니다.
 - 관심있는 영화를 북마크로 저장하고, 추가한 영화들을 관리할 수 있게 도와줍니다.
 
-<p>Enjoy 💛</p>
+<p>Enjoy! 💛</p>
 
 ---
 
@@ -48,7 +48,7 @@
 - **LocalStorage**: <i class="fas fa-database"></i> 북마크 데이터 처리.
 - **Git**: <i class="fab fa-github"></i> 버전 관리.
 
-![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 ### 🖼️ 미리 보기
 
@@ -80,12 +80,13 @@ cd SPARTA-JS-PROJECT01
 
 index.html 파일을 더블 클릭하거나 웹 브라우저에서 열어주세요! 프로젝트가 정상적으로 로드되면, 웹 애플리케이션을 사용하실 수 있습니다.
 
-📌 사용법
-웹 페이지를 열면 영화 목록과 함께 북마크 확인 버튼이 나타납니다.
-마음에 드는 영화를 북마크하려면 해당 영화를 클릭하고, 하단에 있는 "북마크 추가" 버튼을 클릭하세요!
-북마크를 확인하려면 페이지 상단의 "북마크 보기" 버튼을 클릭하세요. 그러면 저장된 북마크 목록을 확인할 수 있는 모달 창이 나타납니다!
-목록에서 북마크 항목 옆의 "삭제" 버튼을 클릭하여 해당 항목을 삭제할 수 있습니다.
-삭제된 북마크는 즉시 localStorage에서 제거되고 화면에서 갱신됩니다.
+### 📌 사용법
+
+- 웹 페이지를 열면 영화 목록과 함께 북마크 확인 버튼이 나타납니다.
+- 마음에 드는 영화를 북마크하려면 해당 영화를 클릭하고, 하단에 있는 "북마크 추가" 버튼을 클릭하세요!
+- 북마크를 확인하려면 페이지 상단의 "북마크 보기" 버튼을 클릭하세요. 그러면 저장된 북마크 목록을 확인할 수 있는 모달 창이 나타납니다!
+- 목록에서 북마크 항목 옆의 "삭제" 버튼을 클릭하여 해당 항목을 삭제할 수 있습니다.
+- 삭제된 북마크는 즉시 localStorage에서 제거되고 화면에서 갱신됩니다.
 
 ### 주요 코드 설명
 
