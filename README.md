@@ -22,7 +22,7 @@
 ├── README.md # 프로젝트 설명 (이 파일)
 └── src
 ├── main.js # 애플리케이션 초기화 및 이벤트 리스너 설정
-├── script.js # 주요 기능 구현 (JavaScript)
+├── api.js # 주요 기능 구현 (JavaScript)
 ├── modal.js # 모달 관련 기능
 ├── bookmark.js # 북마크 주요 기능
 ├── card.js # 영화 카드 생성 기능
@@ -116,7 +116,7 @@ index.html 파일을 더블 클릭하거나 웹 브라우저에서 열어주세�
 
 ---
 
-## 주요 코드 설명
+## 🔍 주요 코드 설명
 
 ### 💾 localStorage 사용
 
