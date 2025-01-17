@@ -16,13 +16,13 @@
 
 ```
 /SPARTA-JS-PROJECT01
-├── .gitignore # Git에서 제외할 파일 목록
-├── index.html # 메인 HTML 파일
-├── style.css # 스타일 시트 (CSS)
-├── README.md # 프로젝트 설명 (이 파일)
+├── .gitignore
+├── index.html # 메인 HTML
+├── style.css # 디자인
+├── README.md # 프로젝트 설명
 └── src
-├── main.js # 애플리케이션 초기화 및 이벤트 리스너 설정
-├── api.js # 주요 기능 구현 (JavaScript)
+├── main.js # 메인 로직
+├── api.js # API fetch 기능
 ├── modal.js # 모달 관련 기능
 ├── bookmark.js # 북마크 주요 기능
 ├── card.js # 영화 카드 생성 기능
