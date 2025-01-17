@@ -1,5 +1,4 @@
-<h2> 🎬 Lights, Camera, Action!</h2>
-# 🍿 영화 검색 앱 (Movie Search App)
+<h2> 🎬 Lights, Camera, Action! 🍿 영화 검색 앱 (Movie Search App)</h2>
 
 <h3>Bookmark management WEB Application</h3>
 
@@ -13,6 +12,7 @@
 
 ## 📦 프로젝트 구조
 
+```
 /SPARTA-JS-PROJECT01
 ├── .gitignore # Git에서 제외할 파일 목록
 ├── index.html # 메인 HTML 파일
@@ -25,18 +25,22 @@
 ├── bookmark.js # 북마크 주요 기능
 ├── card.js # 영화 카드 생성 기능
 └── ui.js # UI 조작 관련 기능
+```
 
 ### 📝 기능
 
-- **[Trending] 영화 목록 보기**: 실시간 TMDB API를 통해 Trending Movies 정보 (제목, 개요, 포스터 등)를 확인할 수 있습니다.
-- **[Bookmark] 영화 북마크**: 영화 리스트에서 좋아하는 영화를 북마크로 저장할 수 있습니다. 북마크 목록을 보고, 원하는 영화의 북마크를 삭제할 수 있습니다.
-- **[Responsive Web] 모바일 지원**: 반응형 웹 디자인을 적용하여 모바일에서도 편리하게 사용할 수 있습니다.
+- **[Trending] 영화 목록 보기**
+  : 실시간 TMDB API를 통해 Trending Movies 정보 (제목, 개요, 포스터 등)를 확인할 수 있습니다.
+- **[Bookmark] 영화 북마크**
+  : 영화 리스트에서 좋아하는 영화를 북마크로 저장할 수 있습니다. 북마크 목록을 보고, 원하는 영화의 북마크를 삭제할 수 있습니다.
+- **[Responsive Web] 모바일 지원**
+  : 반응형 웹 디자인을 적용하여 모바일에서도 편리하게 사용할 수 있습니다.
 
 ### 📑 기술 스택
 
 - **HTML5**: <i class="fas fa-code"></i> 웹 페이지의 구조를 설계.
 - **CSS3**: <i class="fas fa-paint-brush"></i> 스타일링과 레이아웃 구현.
-- **JavaScript**: <i class="fab fa-js"></i> 기능 구현 (영화 목록 관리, 북마크 저장 등).
+- **JavaScript**:![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) 기능 구현 (영화 목록 관리, 북마크 저장 등).
 - **LocalStorage**: <i class="fas fa-database"></i> 북마크 데이터 처리.
 - **Git**: <i class="fab fa-github"></i> 버전 관리.
 
