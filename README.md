@@ -56,6 +56,11 @@
 
 ### 🖼️ 미리 보기
 
+![main](https://i.ibb.co/C5xwQYM/2025-01-17-10-18-00.png)
+![movie](https://i.ibb.co/02FkP7f/2025-01-17-10-18-43.png)
+![search](https://i.ibb.co/tK3YhyF/2025-01-17-10-20-22.png)
+![bookmark](https://i.ibb.co/MchjJNQ/2025-01-17-10-21-25.png)
+
 ---
 
 ## 🚀 시작하기
