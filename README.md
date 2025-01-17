@@ -6,7 +6,9 @@
 
 - Trending 영화를 탐색하고, 좋아하는 영화를 북마크에 추가하여 나만의 영화 목록을 만들어보세요!
 - 이 애플리케이션 서비스는 실시간 영화 API를 기반으로 인기있는 영화 목록과 상세 정보를 제공합니다.
-- 관심있는 영화를 북마크로 저장하고, 추가한 영화들을 관리할 수 있게 도와줍니다. Enjoy 💛
+- 관심있는 영화를 북마크로 저장하고, 추가한 영화들을 관리할 수 있게 도와줍니다.
+
+<p>Enjoy 💛</p>
 
 ---
 
@@ -38,9 +40,11 @@
 
 ### 📑 기술 스택
 
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
+
 - **HTML5**: <i class="fas fa-code"></i> 웹 페이지의 구조를 설계.
 - **CSS3**: <i class="fas fa-paint-brush"></i> 스타일링과 레이아웃 구현.
-- **JavaScript**:![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) 기능 구현 (영화 목록 관리, 북마크 저장 등).
+- **JavaScript**: 기능 구현 (영화 목록 관리, 북마크 저장 등).
 - **LocalStorage**: <i class="fas fa-database"></i> 북마크 데이터 처리.
 - **Git**: <i class="fab fa-github"></i> 버전 관리.
 
