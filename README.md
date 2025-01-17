@@ -44,21 +44,32 @@
 
 ### 📑 기술 스택
 
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
 - **HTML5**: 웹 페이지의 구조를 설계.
 - **CSS3**: 스타일링과 레이아웃 구현.
 - **JavaScript**: 기능 구현 (영화 목록 관리, 북마크 저장 등).
 - **LocalStorage**: 북마크 데이터 처리.
 - **Git**: 버전 관리.
 
-![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-
 ### 🖼️ 미리 보기
 
+#### 메인 (Trending Movies)
+
 ![main](https://i.ibb.co/C5xwQYM/2025-01-17-10-18-00.png)
+
+#### 영화 카드 (Description)
+
 ![movie](https://i.ibb.co/02FkP7f/2025-01-17-10-18-43.png)
+
+#### 검색 (Search)
+
 ![search](https://i.ibb.co/tK3YhyF/2025-01-17-10-20-22.png)
+
+#### 북마크 (Save)
+
 ![bookmark](https://i.ibb.co/MchjJNQ/2025-01-17-10-21-25.png)
 
 ---
