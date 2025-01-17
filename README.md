@@ -32,7 +32,7 @@
 ### 📝 기능
 
 - **[Trending] 영화 목록 보기**
-  : 실시간 TMDB API를 통해 Trending Movies 정보 (제목, 개요, 포스터 등)를 확인할 수 있습니다.
+    <ul>: 실시간 TMDB API를 통해 Trending Movies 정보 (제목, 개요, 포스터 등)를 확인할 수 있습니다.</ul>
 - **[Bookmark] 영화 북마크**
   : 영화 리스트에서 좋아하는 영화를 북마크로 저장할 수 있습니다. 북마크 목록을 보고, 원하는 영화의 북마크를 삭제할 수 있습니다.
 - **[Responsive Web] 모바일 지원**
@@ -40,13 +40,13 @@
 
 ### 📑 기술 스택
 
-![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
-
 - **HTML5**: <i class="fas fa-code"></i> 웹 페이지의 구조를 설계.
 - **CSS3**: <i class="fas fa-paint-brush"></i> 스타일링과 레이아웃 구현.
 - **JavaScript**: 기능 구현 (영화 목록 관리, 북마크 저장 등).
 - **LocalStorage**: <i class="fas fa-database"></i> 북마크 데이터 처리.
 - **Git**: <i class="fab fa-github"></i> 버전 관리.
+
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
 
 ### 🖼️ 미리 보기
 
